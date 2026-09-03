@@ -3,14 +3,13 @@ public class fibonaccinumber {
 
         int a = 0;
         int b = 1;
-
         for (int i=0; i<=10; i+=1){
             System.out.println(a);
-            int temp=a;
-            a=b;
-            b=temp+b;
-        }
+            int temp=b;
+            b=b+a;
+            temp=a;
     
 }
-    
+        System.out.println("Fibonacci series is : "+b);
+}
 }

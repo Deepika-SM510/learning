@@ -4,6 +4,7 @@ public class switchcase{
         Scanner input =new Scanner(System.in);
         String fruits=input.next();
         switch(fruits){
+    
             case "Mango":
                 System.out.println("King of fruits!");
                 break;

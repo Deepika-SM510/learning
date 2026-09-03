@@ -9,10 +9,12 @@ public class largestof3number {
        int max=a;
        if (b>max){
         max=b;
+    
        }
        if (c>max){
         max=c;
        }
+      
        System.out.println("Largest of three number is : "+max);
     }
     
