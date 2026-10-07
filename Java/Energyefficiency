@@ -1,0 +1,56 @@
+abstract class EnergySouce{
+int sourceid;
+String sourcename;
+double EG;
+EnergySouce(int id,String name,double E){
+this.sourceid=id;
+this.sourcename=name;
+this.EG=E;
+}
+abstract double CalculateEfficiency();
+void display(){
+System.out.println("souce id is:"+sourceid);
+System.out.println("souce name is:"+sourcename);
+
+System.out.println("Enrgy generated is:"+EG);
+System.out.println("Energyefficiency is:"+CalculateEfficiency()+"%");
+}
+}
+class SolarEnergy extends EnergySouce{
+SolarEnergy(int id,String name, double E){
+super (id ,name ,E);
+}
+@Override
+double CalculateEfficiency(){
+return(EG/5000)*100;
+}
+}
+class WindEnegy extends EnergySouce{
+WindEnegy(int id,String name, double E){
+super (id,name,E);}
+@Override
+double CalculateEfficiency(){
+return(EG/8000)*100;
+}
+}
+public class energysourceefficiency{
+public static void main(String[] args){
+EnergySouce s;
+s=new SolarEnergy(101,"solar panel",4000);
+s.display();
+System.out.println();
+s=new WindEnegy(102,"wind turbine",6000);
+s.display();
+
+}
+}
+// output
+souce id is:101
+souce name is:solar panel
+Enrgy generated is:4000.0
+Energyefficiency is:80.0%
+
+souce id is:102
+souce name is:wind turbine
+Enrgy generated is:6000.0
+Energyefficiency is:75.0%
