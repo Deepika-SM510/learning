@@ -1,0 +1,12 @@
+n=[10,20,31,23,59,40,55]
+largest=n[0]
+second=n[1]
+for i in range (len(n)):
+  if n[i]>=largest:
+    largest=n[i]
+  if n[i]<largest:
+    second=n[i]
+print(largest,second)    
+    
+    
+      
