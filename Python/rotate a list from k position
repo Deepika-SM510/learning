@@ -1,0 +1,9 @@
+n = [31, 23, 10,59, 20, 40, 55]
+
+k=int(input("Enter a number: "))
+c=[]
+for i in range ((len(n))-k,len(n)):
+  c.append(n[i])
+for i in range ((len(n))-k):
+  c.append(n[i])
+print(c)  2
