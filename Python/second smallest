@@ -1,0 +1,12 @@
+n = [10, 31, 23, 59, 20, 40, 55]
+
+smallest = float('inf')
+second = float('inf')
+
+for i in range(len(n)):
+    if n[i] < smallest:
+        smallest = n[i]
+    elif n[i] < second and n[i] != smallest:
+        second = n[i]
+
+print("Second  smallest and smallest:", second,smallest)
