@@ -1,0 +1,14 @@
+n = [121, 345, 232, 456, 11, 909, 123]
+palindrome=[]
+for i in range (len(n)):
+  original=n[i]
+  k=original
+  rev=0
+  while k>0:
+    d=k%10
+    rev=(rev*10)+d
+    k=k//10
+  k=n[i]
+  if rev==original:
+   palindrome.append(rev)
+print(palindrome)
