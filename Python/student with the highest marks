@@ -1,0 +1,6 @@
+s=[['a',25],['b',75],['c',85],['d',95]]
+lar=0
+for i in range(len(s)):
+    if s[i][1]>lar:
+        lar=s[i][1]
+print(lar)        
