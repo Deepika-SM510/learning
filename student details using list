@@ -1,0 +1,201 @@
+studinf=[]
+n=int(input("Enter number of students u wanna join: "))
+for i in range (n):
+    subl=[]
+    name=input("Enter name: ")
+    rollno=int(input("Enter rollno: "))
+    marks=float(input("Enter marks(0-600): "))
+    attendance=float(input("Enter attendance: "))
+    subl.append(name)
+    subl.append(rollno)
+    subl.append(marks)
+    subl.append(attendance)
+    studinf.append(subl)
+
+def displaymenu():
+  print("1.Display Students Details\n2.Add Students\n3.Update Details\n4.Search\n5.Deletion\n6.Marks\n7.Attendance\n8.Exit")
+displaymenu()  
+  
+while True:
+  choice=int(input("Enter your choice(1-8): "))
+
+  
+  if choice==1:
+    print(studinf)
+
+    
+  elif choice==2:
+    k=[]
+    name=input("Enter name: ")
+    rollno=int(input("Enter rollno: "))
+    marks=float(input("Enter marks: "))
+    attendance=float(input("Enter attendance: "))
+    k.append(name)
+    k.append(rollno)
+    k.append(marks)
+    k.append(attendance)
+    studinf.append(k)
+    print("Added Student Details: ",studinf)
+
+    
+  elif choice==3:
+    rollno = int(input("Enter rollno of student to update: "))
+    found = False
+    for i in range (len(studinf)):
+      if studinf[i][1] == rollno:
+        studinf[i][0]=input("Enter name: ")
+        studinf[i][1]=int(input("Enter rollno: "))
+        studinf[i][2]=float(input("Enter marks: "))
+        studinf[i][3]=float(input("Enter attendance: "))
+        found=True
+        print("Updated Details: ",studinf)
+        break
+    if not found:
+          print("Student not found")  
+
+
+        
+  elif choice==4:
+    print("Search using Roll Number")
+    rollno=int(input("Enter rollno: "))
+    found=False
+    for i in range (len(studinf)):
+          if studinf[i][1]==rollno:
+            print(studinf[i])
+            found=True
+            break 
+    if not found:
+      print("Roll number not found")
+
+
+      
+  elif choice==5:
+    print("Delete using Roll Number")
+    rollno=int(input("Enter rollno: "))
+    found=False
+    for i in range (len(studinf)):
+      if studinf[i][1]==rollno:
+        studinf.remove(studinf[i])
+        found=True
+        break
+    if not found:
+      print("Roll number not found")   
+     
+    print(studinf)  
+
+    
+  elif choice==6:
+    def marks():
+      print("1.Highest marks\n2.lowest marks\n3.Average marks of class\n4.Pass and Fail\n5.Above 50 marks\n6.Ranking\n7.Exit")
+    marks()  
+    while True:
+      c=int(input("Enter Your Choice(1-7): "))
+      if c==1:
+        
+        if len(studinf)==0:
+          print("no students")
+        else: 
+          highest=studinf[0][2]
+          for i in range (len(studinf)):
+            if studinf[i][2]>highest:
+              highest=studinf[i][2]
+        print("Highest marks scored by student: ",highest)
+
+        
+      elif c==2:
+        
+        
+        if len(studinf)==0:
+          print("no students")
+        else: 
+          Lowest=studinf[0][2]
+          for i in range (len(studinf)):
+              if studinf[i][2]<Lowest:
+                  Lowest=studinf[i][2]
+        print("Lowest marks scored by student: ",Lowest)
+
+        
+      elif c==3:
+        Sum=0
+        if len(studinf)==0:
+          print("no students")
+        else:
+          for i in range (len(studinf)):
+            Sum+=studinf[i][2]
+          average=Sum/len(studinf)
+          print("Average marks of class: ",average)
+
+          
+      elif c==4:
+        passed=[]
+        fail=[]
+        if len(studinf)==0:
+          print("no students")
+        else:
+          for i in range (len(studinf)):
+            if studinf[i][2]>=100:
+              passed.append(studinf[i])
+            else:
+              fail.append(studinf[i])
+        
+        print("Passed student: ",passed)
+        print("Failed student: ",fail) 
+
+
+
+      
+      elif c==5:
+        above250=[]
+        for i in range (len(studinf)):
+          if studinf[i][2]>=250:
+            above250.append(studinf[i])
+        print("student Scored above 250: ",above250)
+
+
+        
+      elif c == 6:
+        print("Ranking")
+    
+        studinf.sort(key=lambda x: x[2], reverse=True)
+    
+        rank = 1
+        for i in range(len(studinf)):
+            print("Rank:", rank, "| Name:", studinf[i][0],
+                  "| Marks:", studinf[i][2])
+            rank += 1
+
+          
+      elif c==7:
+        print("Exit")
+        break
+
+
+        
+      else:
+        print("Invalid marks menu choice")
+
+
+        
+  elif choice==7:
+    if len(studinf)==0:
+      print("No students records available!")
+    else:  
+      for i in range (len(studinf)):
+       if studinf[i][3]>75:
+         print(f"{studinf[i][0]} | eligible | {studinf[i][3]}")
+       else:
+         print(f"{studinf[i][0]} | Not eligible | {studinf[i][3]}")
+
+
+         
+  elif choice==8:
+    
+    print("Exit")
+    break
+
+    
+  else:
+    print("invalid choice. enter a number between 1-8")
+  
+    
+    
