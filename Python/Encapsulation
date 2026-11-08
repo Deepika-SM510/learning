@@ -1,0 +1,48 @@
+class Student:
+  def __init__(self,name,age,marks):
+    self.__name=name
+    self.__age=age
+    if 0<=marks<=600:
+        self.__marks=marks
+    else:
+      print("invalid")
+      self.__marks=0
+  def get_name(self):
+    return self.__name
+  def get_age(self):
+    return self.__age
+  def get_marks(self):
+    return self.__marks
+  def set_name(self,name):
+    if name!="":
+      self.__name=name
+    else:
+      print("Invalid name")
+  def set_age(self,age):
+    if age>0:
+      self.__age=age
+    else:
+      print("Invalid age")  
+  def set_marks(self,marks):
+    if 0<=marks<=600:
+      self.__marks=marks
+    else:
+      print("Invalid marks")  
+  def Display(self):
+    print("Student")
+    print("name of the Student: ",self.__name)
+    print("Age of the Student: ",self.__age)
+    print("Marks of the Student: ",self.__marks)
+s1=Student("Deepu",12,900)
+s2=Student("Deeru",10,100)
+s1.Display()
+s2.Display()
+print("========= updating ==========")
+s1.set_name("Chandana")
+s1.set_age(13)
+s1.set_marks(520)
+s2.set_name("Deepu")
+s2.set_age(15)
+s2.set_marks(50)
+s1.Display()
+s2.Display()
