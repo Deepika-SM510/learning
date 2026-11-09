@@ -1,0 +1,97 @@
+from abc import ABC,abstractmethod
+class BankAccount(ABC):
+  @abstractmethod
+  def withdraw(self,amt):
+    pass
+  @abstractmethod  
+  def Deposit(self,amt):
+    pass
+  @abstractmethod  
+  def Display_details(self):
+    pass
+  
+class SavingAccount(BankAccount):
+  def __init__(self,accholder_name,acc_no,balance,minimumbalance):
+    
+    if accholder_name.strip()!="":
+      self.__accholder_name=accholder_name
+    else:
+      print("invalid")
+      self.__accholder_name="unknown"
+      
+    self.__acc_no=acc_no
+    if balance>=0:
+      self.__balance=balance
+    else:
+      print("Invalid")
+      self.__balance=0
+    self.__minimumbalance = 0
+
+    if 0 <= minimumbalance <= self.__balance:
+        self.__minimumbalance = minimumbalance
+    else:
+       print("Invalid minimum balance")  
+  def get_accholder_name(self):
+    return  self.__accholder_name 
+  def get_acc_no(self):
+    return  self.__acc_no 
+  def get_balance(self):
+    return  self.__balance 
+  def get_minimumbalance(self):
+    return  self.__minimumbalance 
+  def set_accholder_name(self,accholder_name):
+    if accholder_name.strip()!="":
+       self.__accholder_name=accholder_name
+    else:
+      print("Invalid")  
+  def set_minimumbalance(self,minimumbalance):
+    if 0<=minimumbalance<=self.__balance:
+      self.__minimumbalance=minimumbalance
+    else:
+      print("Invalid")
+#withdraw
+  def withdraw(self,amt):
+   if amt>0 and self.__balance-amt>=self.__minimumbalance:
+     self.__balance-=amt
+     
+   else:
+     print("Invalid amt")
+     #Deposit
+  def Deposit(self,amt):
+   if amt>0:
+     self.__balance+=amt
+   else:
+     print("Invalid amt")
+  #Display   
+  def Display_details(self):
+   print("Account holder name: ",self.__accholder_name)
+   print("Account number: ",self.__acc_no)
+   print("Current Balance: ",self.__balance)
+    
+b1=SavingAccount("Deepika",123,50000,5000)   
+b2=SavingAccount("Deeraj",456,100000,10000)   
+print("=======Before updation========")
+
+b1.Display_details()
+
+b2.Display_details()
+
+print()
+print("=======updation=======")
+print()
+print("======updating Account 1======")
+b1.set_accholder_name("Deepika S M")
+b1.set_minimumbalance(6000)
+b1.withdraw(5000)
+b1.Deposit(50000)
+b1.Display_details()
+print("\n======updating Account 2======")
+b2.set_accholder_name("Deeraj S M")
+b2.set_minimumbalance(6000)
+
+b2.withdraw(3000)
+b2.Deposit(10000)
+b2.Display_details()
+
+    
+    
